@@ -1,3 +1,5 @@
+package myjava.mybignumber;
+
 /**
  * DesCription.
  * IReceiver là interface cho phép in từng bước cộng 2 số
@@ -6,12 +8,10 @@
 public interface IReceiver {
 
     /*
-     * Để thực hiện việc in từng bước cộng 2 chuỗi số
-     * thì lớp nào implements interface này thì phải hiện thực
-     * hàm send của IReceiver
-     * <br/>
-     *
-     */
+	 * Để thực hiện việc in từng bước cộng 2 chuỗi số thì lớp nào implements
+	 * interface này thì phải hiện thực hàm send của IReceiver <br/>
+	 *
+	 */
 
-    public abstract void send(String msg);
+	public abstract void send(String msg);
 }
