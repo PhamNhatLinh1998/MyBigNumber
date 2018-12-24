@@ -1,24 +1,36 @@
 package myjava.mybignumber;
 
-import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MyBigNumberApplication implements IReceiver {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyBigNumberApplication.class, args);
+	   //SpringApplication.run(MyBigNumberApplication.class, args);
 		
 		MyBigNumberApplication app = new MyBigNumberApplication();
-		MyBigNumber mb = new MyBigNumber(app);
+		MyBigNumber s = new MyBigNumber(app);
+		try {
+			
+		String s1 = args[0];
 		
-		String sum = mb.sum(args[0], args[1]);
+		String s2 = args[1];
 		
-		System.out.println("Final step: " + sum);
+		String result = s.sum(s1, s2);
+		System.out.println("Ket qua la: " + result);
+		
+		}
+		
+		catch (NumberFormatException ex){
+			System.out.println(ex.getMessage());
+		}
+				
 	}
-	@Override
-	public void send(String msg) {
-		// TODO Auto-generated method stub
+	
+	public void send (String msg) {
+		
 		System.out.println(msg);
 	}
+
 }
