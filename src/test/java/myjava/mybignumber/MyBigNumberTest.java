@@ -93,29 +93,15 @@ class MyBigNumberTest implements IReceiver {
 
 		assertEquals("1010", sum);
 	}
-	
-	@Test 
-    public void testSum_N_10() {
+    
+    @Test
+	public void testSum_N_10() {
+		MyBigNumber mb = new MyBigNumber(this);
+		String sum = mb.sum("11111111111", "22222222222");
 
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("null", "10");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
+		assertEquals("33333333333", sum);
 	}
-	
-	@Test 
-    public void testSum_N_11() {
-
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("10", "null");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
-	}
-	
+    
 	@Override
 	public void send(String msg) {
 		// TODO Auto-generated method stub

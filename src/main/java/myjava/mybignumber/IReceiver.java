@@ -1,21 +1,19 @@
 package myjava.mybignumber;
 
-/**
- * Tác giả: Phạm Nhật Linh.
- * DesCription.
- * IReceiver là interface cho phép in từng bước cộng 2 số
- * Hàm send cho hàm cho phép ta in ra chuỗi số
- */
-public interface IReceiver {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    /*
-     * Để thực hiện việc in từng bước cộng 2 chuỗi số
-     * thì lớp nào implements interface này thì phải hiện thực
-     * hàm send của IReceiver
-     * <br/>
-     *
-     * @since 2018
-     */
+@SpringBootApplication
+public class MyBigNumberApplication implements IReceiver{
 
-    public abstract void send(String msg);
+    public static void main(String[] args) {
+        SpringApplication.run(MyBigNumberApplication.class, args);
+        System.out.println("Final step: " +
+                (new MyBigNumber(new MyBigNumberApplication())).sum(args[0],args[1]));
+    }
+
+    @Override
+    public void send(String msg) {
+        System.out.println(msg);
+    }
 }

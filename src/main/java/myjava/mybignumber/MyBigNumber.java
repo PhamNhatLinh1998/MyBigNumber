@@ -45,15 +45,6 @@ public class MyBigNumber {
         final Matcher matcher1 = pattern1.matcher(s1);
         final Matcher matcher2 = pattern1.matcher(s2);
 
-        //kiểm tra người dùng có nhập đủ input chưa
-        if (s1.trim().isEmpty()) { 
-            throw new NumberFormatException("chuỗi thứ 1 chưa nhập");
-        }
-
-        if (s2.trim().isEmpty()) { 
-            throw new NumberFormatException("chuỗi thứ 2 chưa nhập");
-        }
-
         // Kiểm tra số âm
         if (s1.charAt(0) == '-') {
             throw new NumberFormatException("Không hổ trợ số âm: " + s1);
