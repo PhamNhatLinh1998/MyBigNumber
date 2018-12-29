@@ -44,7 +44,18 @@ public class MyBigNumber {
         Pattern pattern1 = Pattern.compile("\\D");
         final Matcher matcher1 = pattern1.matcher(s1);
         final Matcher matcher2 = pattern1.matcher(s2);
-
+        
+        //Check user input empty string
+        String x = "null"; // To check if user enter null
+        
+        if ((s1.isEmpty()) || (s1.equals(x))) {
+            s1 = "0";
+        }
+        
+        if ((s2.isEmpty()) || (s2.equals(x))) {
+            s2 = "0";
+        }
+        
         // Kiểm tra số âm
         if (s1.charAt(0) == '-') {
             throw new NumberFormatException("Không hổ trợ số âm: " + s1);

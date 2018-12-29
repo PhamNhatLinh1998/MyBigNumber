@@ -47,47 +47,62 @@ class MyBigNumberTest implements IReceiver {
 	}
 
 	@Test
-	public void TestSum_N_5() {
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("A", "999");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
-	}
+    public void testSum_N_5() {
+        MyBigNumber mb = new MyBigNumber(this);
+        String sum = mb.sum("125", "");
+		
+        assertEquals("125", sum);
+    }
+	
+    @Test
+    public void testSum_N_6() {
+        MyBigNumber mb = new MyBigNumber(this);
+        String sum = mb.sum("", "125");
 
-	@Test
-	public void TestSum_N_6() {
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("99", "B");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
-	}
-
-	@Test
-	public void TestSum_N_7() {
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("99", "-10");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
-	}
-    
-	@Test
-	public void TestSum_N_8() {
-		try {
-			MyBigNumber mb = new MyBigNumber(this);
-			String sum = mb.sum("-99", "10");
-		} catch (NumberFormatException e) {
-			System.out.println(e);
-		}
-	}
+        assertEquals("125", sum);
+    }
 	
 	@Test
-	public void testSum_N_9() {
+    public void testSum_N_7() {
+        MyBigNumber mb = new MyBigNumber(this);
+        String sum = mb.sum(null,"1110");
+
+        assertEquals("1110", sum);
+    }
+
+	@Test
+    public void testSum_N_8() {
+        MyBigNumber mb = new MyBigNumber(this);
+        String sum = mb.sum("1110",null);
+
+        assertEquals("1110", sum);
+    }
+    
+	 @Test(expected = NumberFormatException.class)
+    public void testSum_N_9() {
+        MyBigNumber mb = new MyBigNumber(this);
+        mb.sum("-110", "125");
+    }
+    
+	@Test(expected = NumberFormatException.class)
+    public void testSum_N_10() {
+        MyBigNumber mb = new MyBigNumber(this);
+        mb.sum("125","-110");
+    }
+	
+	@Test(expected = NumberFormatException.class)
+    public void testSum_N_11() {
+        MyBigNumber mb = new MyBigNumber(this);
+        mb.sum("A", "125");
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testSum_N_12() {
+        MyBigNumber mb = new MyBigNumber(this);
+        mb.sum("125", "B");
+    }
+	@Test
+	public void testSum_N_13() {
 		MyBigNumber mb = new MyBigNumber(this);
 		String sum = mb.sum("505", "505");
 
@@ -95,7 +110,7 @@ class MyBigNumberTest implements IReceiver {
 	}
     
     @Test
-	public void testSum_N_10() {
+	public void testSum_N_14() {
 		MyBigNumber mb = new MyBigNumber(this);
 		String sum = mb.sum("11111111111", "22222222222");
 
