@@ -45,8 +45,7 @@ public class MyBigNumber {
         final Matcher matcher1 = pattern1.matcher(s1);
         final Matcher matcher2 = pattern1.matcher(s2);
         
-        //Check user input empty string
-        String x = "null"; // To check if user enter null
+        String x = "null";
         
         if ((s1.isEmpty()) || (s1.equals(x))) {
             s1 = "0";
