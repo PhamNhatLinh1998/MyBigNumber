@@ -45,14 +45,29 @@ public class MyBigNumber {
         final Matcher matcher1 = pattern1.matcher(s1);
         final Matcher matcher2 = pattern1.matcher(s2);
         
-        String x = "null";
-        
-        if ((s1.isEmpty()) || (s1.equals(x))) {
-            s1 = "0";
+        // Nếu 1 trong 2 tham số là null thì trả về tham số còn lại
+        if (s1 == null) {
+
+            return s2;
+
+        } else if (s2 == null) {
+
+            return s1;
+
         }
-        
-        if ((s2.isEmpty()) || (s2.equals(x))) {
-            s2 = "0";
+		
+		// Xét cả 2 tham số đều là rỗng hoặc chỉ có 1 tham số là rỗng
+        // Nếu cả 2 tham số là rỗng thì trả về 0
+        // Nếu 1 trong 2 tham số là rỗng thì trả về tham số còn lại
+        if ((s1.trim().isEmpty()) && (s2.trim().isEmpty())) {
+
+            return "0";
+        } else if (s1.trim().isEmpty()) {
+
+            return s2;
+        } else if (s2.trim().isEmpty()) {
+
+            return s1;
         }
         
         // Kiểm tra số âm
