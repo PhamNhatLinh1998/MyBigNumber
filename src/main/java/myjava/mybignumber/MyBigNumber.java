@@ -56,7 +56,7 @@ public class MyBigNumber {
 
         }
 		
-		// Xét cả 2 tham số đều là rỗng hoặc chỉ có 1 tham số là rỗng
+        // Xét cả 2 tham số đều là rỗng hoặc chỉ có 1 tham số là rỗng
         // Nếu cả 2 tham số là rỗng thì trả về 0
         // Nếu 1 trong 2 tham số là rỗng thì trả về tham số còn lại
         if ((s1.trim().isEmpty()) && (s2.trim().isEmpty())) {
